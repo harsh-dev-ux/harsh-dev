@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsh Hajare</title>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<style>
+    /* General Reset */
+    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Audiowide', sans-serif; color:#fff;}
+    body {
+        background: #0d1117;
+        background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?fit=crop&w=1600&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #fff;
+        min-height: 100vh;
+    }
+    body::before {
+        content:"";
+        position:fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background: rgba(0,0,50,0.7);
+        z-index:-1;
+    }
+
+    /* Container */
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+        backdrop-filter: blur(8px);
+        border-radius: 15px;
+        background: rgba(0,0,0,0.5);
+    }
+
+    /* Header */
+    header {
+        text-align: center;
+        font-size: 3em;
+        color: #00f0ff;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+
+    /* Section Styling */
+    section {
+        margin: 20px 0;
+        line-height: 1.6;
+    }
+    section h2 {
+        font-size: 2em;
+        color: #ff8c00;
+        margin-bottom: 15px;
+        text-shadow: 0 0 5px #ff8c00;
+    }
+    section p {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.7);
+    }
+
+    /* Links Styling */
+    .links a {
+        display: inline-block;
+        margin: 8px 12px;
+        text-decoration: none;
+        color: #00f0ff;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    .links a:hover {
+        color: #ff8c00;
+        transform: scale(1.1);
+    }
+
+    /* Coming Soon */
+    .coming-soon {
+        font-size: 1.3em;
+        color: #ff4d4d;
+        text-align: center;
+        margin-top: 30px;
+        text-shadow: 0 0 5px #ff4d4d;
+    }
+
+    /* Emojis in text */
+    .emoji {margin-right: 6px;}
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>Harsh Hajare</header>
+
+        <!-- About Me -->
+        <section id="about">
+            <h2>💫 About Me</h2>
+            <p><span class="emoji">💻</span>Code by day, <span class="emoji">🎮</span>Game by night, <span class="emoji">⚽</span>Football by soul</p>
+            <p><span class="emoji">👨‍💻</span>Fav Coder – William Lin</p>
+            <p><span class="emoji">⚽</span>Fav Athlete – Cristiano Ronaldo</p>
+            <p><span class="emoji">🧠</span>Fav Mind – Kevin Mitnick</p>
+            <p><span class="emoji">🎓</span>Pursuing B.E. in AI & Data Science at DY Patil Institute of Technology, Pimpri</p>
+            <p><span class="emoji">🎓</span>Also pursuing BS in Data Science and Applications from IIT Madras</p>
+            <p><span class="emoji">🧠</span>Learning: Currently grinding CS50 & mastering C++</p>
+            <p><span class="emoji">🎯</span>Current Focus: Building strong DSA through Striver TUF+ courses & system design fundamentals</p>
+            <p><span class="emoji">🎯</span>Motto: “Outwork. Outlearn. Outperform.”</p>
+        </section>
+
+        <!-- Links -->
+        <section id="links">
+            <h2>📎 Links</h2>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/harsh-hajare-584097381" target="_blank">LinkedIn</a>
+                <a href="https://github.com/harsh-dev-ux" target="_blank">GitHub</a>
+                <a href="https://x.com/HARSH_2600" target="_blank">X</a>
+                <a href="https://www.instagram.com/apela_hr7/" target="_blank">Instagram</a>
+                <a href="#">Discord: harsh_hr7</a>
+            </div>
+        </section>
+
+        <!-- Coming Soon -->
+        <section class="coming-soon">
+            🔜 Coming Soon: Hackathons & Portfolio Updates!
+        </section>
+    </div>
+</body>
+</html>
