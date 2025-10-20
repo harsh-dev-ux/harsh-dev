@@ -1,11 +1,112 @@
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header>Harsh.H</header>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Harsh.H</title>
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet"> <style>
 
-        <!-- About Me -->
-        <section id="about">
-            <h2>🔐 Root Access</h2>
+            
+            /* General Reset */
+            * {margin:0; padding:0; box-sizing:border-box; font-family: 'Audiowide', sans-serif; color:#fff;}
+            body {
+                background: #0d1117;
+                background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?fit=crop&w=1600&q=80');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                color: #fff;
+                min-height: 100vh;
+            }
+            
+            body::before {
+                content:""; 
+                position:fixed;
+                top:0; 
+                left:0;
+                width:100%;
+                height:100%;
+                background: rgba(0,0,50,0.7);
+                z-index:-1;
+            }
+
+            
+            /* Container */ 
+            .container {
+                max-width: 900px; 
+                margin: auto;
+                padding: 40px 20px;
+                backdrop-filter: blur(8px);
+                border-radius: 15px;
+                background: rgba(0,0,0,0.5);
+            } 
+
+            
+            /* Header */ 
+            header {
+                text-align: center;
+                font-size: 3em; 
+                color: #00f0ff;
+                margin-bottom: 20px;
+                text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+            }
+
+            
+            /* Section Styling */
+            section {
+                margin: 20px 0;
+                line-height: 1.6;
+            }
+            section h2 {
+                font-size: 2em; 
+                color: #ff8c00;
+                margin-bottom: 15px;
+                text-shadow: 0 0 5px #ff8c00;
+            }
+            section p {
+                font-size: 1.1em;
+                margin-bottom: 10px;
+                text-shadow: 0 0 5px rgba(0,0,0,0.7);
+            } 
+
+            
+            /* Links Styling */
+            .links a {
+                display: inline-block;
+                margin: 8px 12px; 
+                text-decoration: none; 
+                color: #00f0ff;
+                font-weight: bold;
+                transition: 0.3s; 
+            } 
+            .links a:hover { 
+                color: #ff8c00;
+                transform: scale(1.1);
+            } 
+
+            
+            /* Coming Soon */
+            .coming-soon {
+                font-size: 1.3em; color: #ff4d4d;
+                text-align: center; 
+                margin-top: 30px; 
+                text-shadow: 0 0 5px #ff4d4d; 
+            } 
+            
+            /* Emojis in text */
+            .emoji {margin-right: 6px;}
+        </style>
+    </head>
+    <body> 
+        <div class="container"> 
+
+            
+            <!-- Header -->
+            <header>Harsh.H</header>
+            
+            <!-- About Me -->
+            <section id="about"> 
+                <h2>🔐Root Access </h2>
             <p><span class="emoji">💻</span>Code by day, <span class="emoji">🎮</span>game by night, <span class="emoji">⚽</span>football by soul.</p>
             <p><span class="emoji">👨‍💻</span>Fav Coder – William Lin</p>
             <p><span class="emoji">⚽</span>Fav Athlete – Cristiano Ronaldo</p>
@@ -14,7 +115,7 @@
             <p><span class="emoji">🎓</span>Also leveling up with BS in Data Science & Applications @ IIT Madras</p>
             <p><span class="emoji">🧠</span>Grinding CS50 & flexing C++ skills daily</p>
             <p><span class="emoji">🎯</span>Focus: Building solid DSA through Striver TUF+ and diving deep into System Design</p>
-            <p><span class="emoji">⚡</span>Motto: “Execute. Debug. Evolve.”</p>
+            <p><span class="emoji">⚡</span>Motto: “Human.exe — constantly upgrading.”</p>
         </section>
 
         <!-- Links -->
@@ -31,7 +132,7 @@
 
         <!-- Coming Soon -->
         <section class="coming-soon">
-            🚧 Under Development: Next Project Loading...
+            💻 Incoming: Fresh Deploys & System Updates!
         </section>
     </div>
 </body>
