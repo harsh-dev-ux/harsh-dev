@@ -1,107 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Harsh.H</title>
-        <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet"> <style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsh.H | Game Vault</title>
 
-            
-            /* General Reset */
-            * {margin:0; padding:0; box-sizing:border-box; font-family: 'Audiowide', sans-serif; color:#fff;}
-            body {
-                background: #0d1117;
-                background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?fit=crop&w=1600&q=80');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-                color: #fff;
-                min-height: 100vh;
-            }
-            
-            body::before {
-                content:""; 
-                position:fixed;
-                top:0; 
-                left:0;
-                width:100%;
-                height:100%;
-                background: rgba(0,0,50,0.7);
-                z-index:-1;
-            }
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-            
-            /* Container */ 
-            .container {
-                max-width: 900px; 
-                margin: auto;
-                padding: 40px 20px;
-                backdrop-filter: blur(8px);
-                border-radius: 15px;
-                background: rgba(0,0,0,0.5);
-            } 
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Share Tech Mono', monospace;
+    background-color: #000;
+    color: #00ff88;
+    overflow-x: hidden;
+  }
 
-            
-            /* Header */ 
-            header {
-                text-align: center;
-                font-size: 3em; 
-                color: #00f0ff;
-                margin-bottom: 20px;
-                text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
-            }
+  header {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 30px 0;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px #00ff88;
+    animation: flicker 2.5s infinite alternate;
+  }
 
-            
-            /* Section Styling */
-            section {
-                margin: 20px 0;
-                line-height: 1.6;
-            }
-            section h2 {
-                font-size: 2em; 
-                color: #ff8c00;
-                margin-bottom: 15px;
-                text-shadow: 0 0 5px #ff8c00;
-            }
-            section p {
-                font-size: 1.1em;
-                margin-bottom: 10px;
-                text-shadow: 0 0 5px rgba(0,0,0,0.7);
-            } 
+  @keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.85; text-shadow: 0 0 10px #00ff88; }
+    100% { opacity: 1; text-shadow: 0 0 20px #00ff88; }
+  }
 
-            
-            /* Links Styling */
-            .links a {
-                display: inline-block;
-                margin: 8px 12px; 
-                text-decoration: none; 
-                color: #00f0ff;
-                font-weight: bold;
-                transition: 0.3s; 
-            } 
-            .links a:hover { 
-                color: #ff8c00;
-                transform: scale(1.1);
-            } 
+  section {
+    width: 80%;
+    margin: 20px auto;
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.15);
+    backdrop-filter: blur(3px);
+  }
 
-            
-            /* Coming Soon */
-            .coming-soon {
-                font-size: 1.3em; color: #ff4d4d;
-                text-align: center; 
-                margin-top: 30px; 
-                text-shadow: 0 0 5px #ff4d4d; 
-            } 
-            
-            /* Emojis in text */
-            .emoji {margin-right: 6px;}
-        </style>
-    </head>
-    <body> 
-        <div class="container"> 
+  h2 {
+    text-align: left;
+    font-size: 1.6rem;
+    color: #00ffa2;
+    border-bottom: 1px solid #00ffa2;
+    padding-bottom: 8px;
+  }
 
-            
-          <!-- Header -->
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 8px 0;
+    transition: 0.3s ease;
+  }
+
+  li:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ff88;
+    transform: translateX(5px);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .links a {
+    text-decoration: none;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+  }
+
+  .links a:hover {
+    background: #00ff88;
+    color: #000;
+    box-shadow: 0 0 20px #00ff88;
+  }
+
+  .coming-soon {
+    text-align: center;
+    margin-top: 25px;
+    color: #00ffa2;
+    text-shadow: 0 0 10px #00ff88;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  .emoji {
+    margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
 <header>Harsh.H</header>
 
 <!-- Game Vault -->
@@ -116,17 +124,10 @@
     <li>🔫 Valorant / CS2 (Aim > Luck)</li>
     <li>⚽ EA FC 25 – Ronaldo till I die</li>
     <li>🌌 Aesthetic Picks – Journey, Inside, Firewatch, Stray</li>
+    <li>🐎 Red Dead Redemption 2</li>
   </ul>
 
-  <p><span class="emoji">💀</span>Old-School Grind:</p>
-  <ul>
-    <li>🎮 Max Payne 3</li>
-    <li>👾 Assassin’s Creed Ezio Trilogy</li>
-    <li>💣 GTA San Andreas</li>
-    <li>🧠 Hitman: Blood Money</li>
-  </ul>
-
-  <p><span class="emoji">⚙️</span>Setup: RTX 3050 | i5-12450HX | 16GB RAM</p>
+  <p><span class="emoji">⚙️</span>Setup: RTX 3050( 6GB ) | i5-12450HX | 16GB RAM</p>
   <p><span class="emoji">🕹</span>Mode: Prefer Online Sessions, but truly enjoy Solo Storylines & Offline Chaos.</p>
 </section>
 
@@ -147,3 +148,5 @@
   🧩 Incoming: New Mods, Fresh Saves & Chaos.
 </section>
 
+</body>
+</html>
