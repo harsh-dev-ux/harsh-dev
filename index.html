@@ -1,152 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Harsh.H | Game Vault</title>
 
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Share Tech Mono', monospace;
-    background-color: #000;
-    color: #00ff88;
-    overflow-x: hidden;
+  :root{
+    --bg:#000;
+    --glow:#00ff88;
+    --muted: rgba(0,255,136,0.06);
+    --card-border: rgba(0,255,136,0.18);
+    --accent:#00ffa2;
+    --glass: rgba(255,255,255,0.02);
   }
 
-  header {
-    text-align: center;
-    font-size: 2.5rem;
-    padding: 30px 0;
-    letter-spacing: 3px;
-    text-shadow: 0 0 15px #00ff88;
-    animation: flicker 2.5s infinite alternate;
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    min-height:100vh;
+    background: radial-gradient(ellipse at top left, rgba(0,255,136,0.02), transparent 20%), var(--bg);
+    color:var(--glow);
+    font-family:'Share Tech Mono', monospace;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:30px 18px;
   }
 
-  @keyframes flicker {
-    0% { opacity: 1; }
-    50% { opacity: 0.85; text-shadow: 0 0 10px #00ff88; }
-    100% { opacity: 1; text-shadow: 0 0 20px #00ff88; }
+  header{
+    text-align:center;
+    font-size:2.6rem;
+    letter-spacing:3px;
+    margin-bottom:18px;
+    text-shadow:0 0 18px var(--glow);
+    animation:flicker 2.5s infinite alternate;
+  }
+  @keyframes flicker{
+    0%{opacity:1}
+    45%{opacity:.86}
+    55%{opacity:.94}
+    100%{opacity:1}
   }
 
-  section {
-    width: 80%;
-    margin: 20px auto;
-    background: rgba(0, 255, 136, 0.05);
-    border: 1px solid rgba(0, 255, 136, 0.2);
-    border-radius: 12px;
-    padding: 20px 30px;
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.15);
-    backdrop-filter: blur(3px);
+  .container{
+    width:100%;
+    max-width:980px;
+    margin:0 auto;
   }
 
-  h2 {
-    text-align: left;
-    font-size: 1.6rem;
-    color: #00ffa2;
-    border-bottom: 1px solid #00ffa2;
-    padding-bottom: 8px;
+  section.card{
+    background: linear-gradient(180deg, rgba(0,255,136,0.02), transparent);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:20px 22px;
+    margin-bottom:18px;
+    box-shadow:0 0 28px rgba(0,255,136,0.06);
+    backdrop-filter: blur(4px);
   }
 
-  ul {
-    list-style: none;
-    padding: 0;
+  h2{
+    margin:0 0 12px 0;
+    font-size:1.45rem;
+    color:var(--accent);
+    border-bottom:1px solid rgba(0,255,136,0.08);
+    padding-bottom:8px;
   }
 
-  li {
-    margin: 8px 0;
-    transition: 0.3s ease;
+  p.meta{
+    margin:6px 0 12px 0;
+    color:var(--glow);
+    opacity:0.95;
   }
 
-  li:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px #00ff88;
-    transform: translateX(5px);
+  ul.loadout{
+    list-style:none;
+    padding:0;
+    margin:0 0 10px 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:10px;
   }
 
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 10px;
+  ul.loadout li{
+    padding:10px;
+    border-radius:8px;
+    transition:transform .22s ease, color .18s ease;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    color:var(--glow);
+    border:1px dashed rgba(0,255,136,0.06);
+  }
+  ul.loadout li:hover{
+    transform:translateX(6px);
+    color:#ffffff;
+    text-shadow:0 0 10px var(--glow);
   }
 
-  .links a {
-    text-decoration: none;
-    color: #00ff88;
-    border: 1px solid #00ff88;
-    padding: 8px 18px;
-    border-radius: 8px;
-    transition: 0.3s ease;
+  .emoji{font-size:1.1rem; width:28px; display:inline-flex; align-items:center; justify-content:center}
+
+  /* links */
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:8px;
+  }
+  .links a{
+    color:var(--glow);
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:8px;
+    border:1px solid rgba(0,255,136,0.12);
+    transition:all .2s ease;
+    display:inline-block;
+  }
+  .links a:hover{ background:var(--glow); color:#000; box-shadow:0 0 18px var(--glow) }
+
+  /* gaming networks */
+  .networks{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:12px;
+    margin-top:8px;
+  }
+  .network-card{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    padding:12px;
+    border-radius:10px;
+    background:linear-gradient(180deg,var(--glass),transparent);
+    border:1px solid rgba(0,255,136,0.06);
+  }
+  .net-left{display:flex;gap:10px;align-items:center;min-width:0}
+  .plat-name{font-weight:700;color:var(--accent);white-space:nowrap}
+  .plat-id{font-size:0.95rem; opacity:0.95; color:var(--glow); word-break:break-all}
+
+  .copy-btn{
+    margin-left:auto;
+    background:transparent;
+    border:1px solid rgba(0,255,136,0.12);
+    color:var(--glow);
+    padding:8px 10px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:all .16s ease;
+  }
+  .copy-btn:hover{ background:var(--glow); color:#000; box-shadow:0 0 12px var(--glow) }
+
+  /* small icon styling */
+  .icon-wrap{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.18);border:1px solid rgba(0,255,136,0.06)}
+
+  /* coming soon */
+  .coming-soon{ text-align:center; margin-top:14px; color:var(--accent); text-shadow:0 0 12px var(--glow) }
+
+  /* responsive */
+  @media (max-width:560px){
+    header{font-size:2rem}
+    ul.loadout{grid-template-columns:1fr}
   }
 
-  .links a:hover {
-    background: #00ff88;
-    color: #000;
-    box-shadow: 0 0 20px #00ff88;
-  }
-
-  .coming-soon {
-    text-align: center;
-    margin-top: 25px;
-    color: #00ffa2;
-    text-shadow: 0 0 10px #00ff88;
-    animation: pulse 2s infinite ease-in-out;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-  }
-
-  .emoji {
-    margin-right: 4px;
+  /* subtle floating background lines (hacker vibe) */
+  .bg-lines{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:0.04;
+    background-image:linear-gradient(90deg, rgba(0,255,136,0.06) 1px, transparent 1px);
+    background-size: 120px 100%;
+    mix-blend-mode:screen;
+    z-index:-1;
   }
 </style>
 </head>
 <body>
+<div class="bg-lines"></div>
 
-<!-- Header -->
 <header>Harsh.H</header>
 
-<!-- Game Vault -->
-<section id="about">
-  <h2>🎮 Game Vault</h2>
-  <p><span class="emoji">⚡</span>Current Loadout:</p>
-  <ul>
-    <li>🕶 GTA V (Story + Parkour Mods)</li>
-    <li>🤖 Cyberpunk 2077</li>
-    <li>🧟‍♂️ Pacify / Phasmophobia (Co-op Horror Nights)</li>
-    <li>🏎 Need for Speed Heat</li>
-    <li>🔫 Valorant / CS2 (Aim > Luck)</li>
-    <li>⚽ EA FC 25 – Ronaldo till I die</li>
-    <li>🌌 Aesthetic Picks – Journey, Inside, Firewatch, Stray</li>
-    <li>🐎 Red Dead Redemption 2</li>
-  </ul>
+<div class="container">
 
-  <p><span class="emoji">⚙️</span>Setup: RTX 3050( 6GB ) | i5-12450HX | 16GB RAM</p>
-  <p><span class="emoji">🕹</span>Mode: Prefer Online Sessions, but truly enjoy Solo Storylines & Offline Chaos.</p>
-</section>
+  <!-- Game Vault -->
+  <section class="card" id="about">
+    <h2>🎮 Game Vault</h2>
+    <p class="meta"><span class="emoji">⚡</span>Current Loadout — modern, online-first, story-ready.</p>
 
-<!-- Links -->
-<section id="links">
-  <h2>📎 Connections</h2>
-  <div class="links">
-    <a href="https://www.linkedin.com/in/harsh-hajare-584097381" target="_blank">LinkedIn</a>
-    <a href="https://github.com/harsh-dev-ux" target="_blank">GitHub</a>
-    <a href="https://x.com/HARSH_2600" target="_blank">X</a>
-    <a href="https://www.instagram.com/apela_dev/" target="_blank">Instagram</a>
-    <a href="#">Discord: harsh_hr7</a>
-  </div>
-</section>
+    <ul class="loadout">
+      <li><span class="emoji">🕶</span> GTA V (Story + Parkour Mods)</li>
+      <li><span class="emoji">🤖</span> Cyberpunk 2077</li>
+      <li><span class="emoji">🧟‍♂️</span> Pacify / Phasmophobia (Co-op Horror Nights)</li>
+      <li><span class="emoji">🏎</span> Need for Speed Heat</li>
+      <li><span class="emoji">🔫</span> Valorant / CS2 (Aim & Mechanics)</li>
+      <li><span class="emoji">⚽</span> EA FC 25 – Ronaldo till I die</li>
+      <li><span class="emoji">🌌</span> Aesthetic Picks – Journey, Inside, Firewatch, Stray</li>
+      <li><span class="emoji">🐎</span> Red Dead Redemption 2</li>
+    </ul>
 
-<!-- Coming Soon -->
-<section class="coming-soon">
-  🧩 Incoming: New Mods, Fresh Saves & Chaos.
-</section>
+    <p class="meta"><span class="emoji">⚙️</span>Setup: RTX 3050 | i5-12450HX | 16GB RAM</p>
+    <p class="meta"><span class="emoji">🕹</span>Mode: Prefer Online Sessions, but truly enjoy Solo Storylines & Offline Chaos.</p>
+  </section>
 
+  <!-- Connections -->
+  <section class="card" id="links">
+    <h2>📎 Connections</h2>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/harsh-hajare-584097381" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/harsh-dev-ux" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://x.com/HARSH_2600" target="_blank" rel="noopener">X</a>
+      <a href="https://www.instagram.com/apela_dev/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" title="Discord (copy)">Discord: harsh_hr7</a>
+    </div>
+
+    <h2 style="margin-top:16px">🎯 Gaming Networks</h2>
+
+    <div class="networks">
+
+      <!-- Steam -->
+      <div class="network-card">
+        <div class="net-left">
+          <div class="icon-wrap" aria-hidden>
+            <!-- stylized steam-ish circle connection -->
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="7.5" cy="16.5" r="2.6" stroke="white" stroke-opacity="0.92" stroke-width="1.2"/>
+              <circle cx="12.8" cy="8.2" r="2.4" stroke="white" stroke-opacity="0.92" stroke-width="1.2"/>
+              <path d="M9.6 13.2L11.8 10.4" stroke="white" stroke-opacity="0.92" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M9.2 13.8L14 15.9" stroke="white" stroke-opacity="0.92" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div style="min-width:0">
+            <div class="plat-name">Steam</div>
+            <div class="plat-id" id="steam-id">1259032199</div>
+          </div>
+        </div>
+        <button class="copy-btn" data-copy="1259032199" title="Copy Steam ID">Copy</button>
+      </div>
+
+      <!-- Epic Games -->
+      <div class="network-card">
+        <div class="net-left">
+          <div class="icon-wrap" aria-hidden>
+            <!-- stylized epic shield -->
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 7.5L12 3l9 4.5v6.6c0 3-2.4 5.7-5.4 6.2L12 21l-3.6-1.2C5.4 19.8 3 17.1 3 14.1V7.5z" stroke="white" stroke-opacity="0.92" stroke-width="1.1" fill="none"/>
+            </svg>
+          </div>
+          <div style="min-width:0">
+            <div class="plat-name">Epic Games</div>
+            <div class="plat-id" id="epic-id">A_PELA</div>
+          </div>
+        </div>
+        <button class="copy-btn" data-copy="A_PELA" title="Copy Epic ID">Copy</button>
+      </div>
+
+      <!-- Riot -->
+      <div class="network-card">
+        <div class="net-left">
+          <div class="icon-wrap" aria-hidden>
+            <!-- stylized riot tag (shield-ish) -->
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="4" width="16" height="16" rx="3" stroke="white" stroke-opacity="0.92" stroke-width="1.1"/>
+              <path d="M7 9h10" stroke="white" stroke-opacity="0.92" stroke-width="1.1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div style="min-width:0">
+            <div class="plat-name">Riot</div>
+            <div class="plat-id" id="riot-id">apela#7810</div>
+          </div>
+        </div>
+        <button class="copy-btn" data-copy="apela#7810" title="Copy Riot ID">Copy</button>
+      </div>
+
+      <!-- Rockstar -->
+      <div class="network-card">
+        <div class="net-left">
+          <div class="icon-wrap" aria-hidden>
+            <!-- stylized horse / RDC-ish icon -->
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 15c2-3 6-4 9-3" stroke="white" stroke-opacity="0.92" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="7" cy="17.2" r="1.6" stroke="white" stroke-opacity="0.92" stroke-width="1.1"/>
+            </svg>
+          </div>
+          <div style="min-width:0">
+            <div class="plat-name">Rockstar</div>
+            <div class="plat-id" id="rock-id">apela_77</div>
+          </div>
+        </div>
+        <button class="copy-btn" data-copy="apela_77" title="Copy Rockstar ID">Copy</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>⚡ Quick Actions</h2>
+    <p class="meta">Click any <strong>Copy</strong> button to copy the ID to clipboard. I added icons that fit the hacker vibe — if you want real brand SVGs instead, I can swap them in.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+      <a class="links" href="#" onclick="event.preventDefault(); copyText('1259032199')">Add on Steam</a>
+      <a class="links" href="#" onclick="event.preventDefault(); copyText('A_PELA')">Copy Epic</a>
+      <a class="links" href="#" onclick="event.preventDefault(); copyText('apela#7810')">Copy Riot</a>
+      <a class="links" href="#" onclick="event.preventDefault(); copyText('apela_77')">Copy Rockstar</a>
+    </div>
+  </section>
+
+  <div class="coming-soon">🧩 Incoming: New Mods, Friend Requests & Fresh Saves.</div>
+</div>
+
+<script>
+  // copy helpers
+  function copyToClipboard(text){
+    if(!navigator.clipboard){
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); }catch(e){}
+      ta.remove();
+      return;
+    }
+    navigator.clipboard.writeText(text).catch(()=>{/* ignore */});
+  }
+
+  function flashBtn(btn){
+    const old = btn.innerText;
+    btn.innerText = 'Copied';
+    btn.style.background = 'var(--glow)';
+    btn.style.color = '#000';
+    setTimeout(()=>{ btn.innerText = old; btn.style.background='transparent'; btn.style.color=''; },1200);
+  }
+
+  document.querySelectorAll('.copy-btn').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const v = b.getAttribute('data-copy');
+      copyToClipboard(v);
+      flashBtn(b);
+    });
+  });
+
+  // the clickable quick links (for convenience)
+  function copyText(t){
+    copyToClipboard(t);
+    // find any copy button for UX feedback
+    const btn = [...document.querySelectorAll('.copy-btn')].find(x=>x.getAttribute('data-copy')===t);
+    if(btn) flashBtn(btn);
+    else{
+      // temporary toast
+      const el = document.createElement('div');
+      el.textContent = 'Copied';
+      Object.assign(el.style,{position:'fixed',right:'18px',bottom:'18px',background:'var(--glow)',color:'#000',padding:'8px 12px',borderRadius:'8px',boxShadow:'0 0 12px var(--glow)'});
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),1100);
+    }
+  }
+</script>
 </body>
 </html>
